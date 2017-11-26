@@ -1,4 +1,4 @@
-package pe.edu.tecsup.springmvc.controller.curso;
+package pe.edu.tecsup.springmvc.controller.programa;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +8,10 @@ import pe.edu.tecsup.springmvc.dao.CursoDAO;
 import pe.edu.tecsup.springmvc.dao.ProgramaDAO;
 import pe.edu.tecsup.springmvc.model.Curso;
 import pe.edu.tecsup.springmvc.model.Programa;
-import pe.edu.tecsup.springmvc.controller.programa.ProgramaService;
 
 @Service
 @Transactional
-public class CursoServiceImp implements CursoService {
+public class ProgramaServiceImp implements ProgramaService {
 
     @Autowired
     CursoDAO cursoDAO;
@@ -31,22 +30,22 @@ public class CursoServiceImp implements CursoService {
     }
 
     @Override
-    public Curso find(Long id) {
-        return cursoDAO.get(id);
+    public Programa find(Long id) {
+        return programaDAO.get(id);
     }
 
     @Override
-    public void save(Curso curso) {
-        if (curso.getId() == null) {
-            cursoDAO.save(curso);
+    public void save(Programa programa) {
+        if (programa.getId() == null) {
+            programaDAO.save(programa);
         } else {
-            cursoDAO.update(curso);
+            programaDAO.update(programa);
         }
     }
 
     @Override
-    public void delete(Long id) {
-        cursoDAO.delete(new Curso(id));
+    public void delete(Long id) {       
+        programaDAO.delete(new Programa(id));
     }
 
 }

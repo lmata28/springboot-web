@@ -1,4 +1,4 @@
-package pe.edu.tecsup.springmvc.controller.curso;
+package pe.edu.tecsup.springmvc.controller.programa;
 
 import java.beans.PropertyEditorSupport;
 import java.text.ParseException;
@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pe.edu.tecsup.springmvc.model.Curso;
-import pe.edu.tecsup.springmvc.controller.curso.CursoService;
+import pe.edu.tecsup.springmvc.model.Programa;
 
 @Controller
-@RequestMapping("admin/curso")
-public class CursoController {
+@RequestMapping("admin/programa")
+public class ProgramaController {
 
     @Autowired
-    CursoService service;
+    ProgramaService service;
 
     @InitBinder
     public void initBinder(WebDataBinder dataBinder) {
@@ -39,42 +38,42 @@ public class CursoController {
     @GetMapping
     public String index(Model model) {
 
-        model.addAttribute("cursos", service.allCurso());
-        return "admin/curso/index";
+        model.addAttribute("programas", service.allPrograma());
+        return "admin/programa/index";
     }
 
     @RequestMapping("nuevo")
     public String nuevo(Model model) {
 
-        model.addAttribute("curso", new Curso());
+        model.addAttribute("programa", new Programa());
         model.addAttribute("programas", service.allPrograma());
-        return "admin/curso/formulario";
+        return "admin/programa/formulario";
     }
 
     @RequestMapping("update/{id}")
     public String update(@PathVariable Long id, Model model) {
 
-        Curso curso = service.find(id);
-        if (curso == null) {
-            return "redirect:/admin/curso";
+        Programa programa = service.find(id);
+        if (programa == null) {
+            return "redirect:/admin/programa";
         }
-        model.addAttribute("curso", curso);
+        model.addAttribute("programa", programa);
         model.addAttribute("programas", service.allPrograma());
-        return "admin/curso/formulario";
+        return "admin/programa/formulario";
     }
 
     @RequestMapping("save")
-    public String save(Curso curso, Model model) {
+    public String save(Programa programa, Model model) {
 
-        service.save(curso);
-        return "redirect:/admin/curso";
+        service.save(programa);
+        return "redirect:/admin/programa";
     }
 
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable("id") Long id) {
 
         service.delete(id);
-        return "redirect:/admin/curso";
+        return "redirect:/admin/programa";
     }
 
 }

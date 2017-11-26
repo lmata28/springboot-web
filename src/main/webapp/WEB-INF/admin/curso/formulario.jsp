@@ -22,7 +22,7 @@
 
                         <div class="form-group">
                             <label class="control-label">Programa</label>
-                            <select type="text" name="programa.id" class="form-control">
+                           <select type="text" name="programa.id" class="form-control">
                                 <option></option>
                                 <c:forEach var="p" items="${programas}">
                                     <option value="${p.id}" ${p.id == curso.programa.id ? 'selected' : ''} >${p.nombre}</option>
@@ -46,7 +46,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Fecha Inicio</label>
-                                    <input type="date" name="fechaInicio" class="form-control" placeholder="dd/mm/yyyy" value="${curso.fechaInicioString}" >
+                                    <input type="text" name="fechaInicio" class="form-control" placeholder="dd/mm/yyyy" value="${curso.fechaInicioString}" >
                                 </div>
                             </div>
                         </div>
