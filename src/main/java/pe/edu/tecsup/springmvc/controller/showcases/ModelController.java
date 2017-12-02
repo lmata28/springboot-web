@@ -16,8 +16,8 @@ public class ModelController {
     @RequestMapping("simple")
     public String simple(Model model) {
 
-        model.addAttribute("titulo", "Simple Model");
-        model.addAttribute("mensaje", "Uso de Model de forma Simple");
+        model.addAttribute("title", "Este es el titulo");
+        model.addAttribute("mensaje", "Uso de Model de forma Simple jejeje");
         return "model/model";
     }
 
@@ -33,7 +33,7 @@ public class ModelController {
     @ModelAttribute
     public void elementos(Model model) {
         model.addAttribute("tituloEspecial", "Model Attribute");
-        model.addAttribute("mensajeEspecial", "Prueba de Model Attribute");
+        model.addAttribute("mensajeEspecial", "Prueba de Model Attribute Variable local");
     }
 
     @RequestMapping("modelattribute")
